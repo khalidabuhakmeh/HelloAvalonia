@@ -1,0 +1,73 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:HelloAvalonia.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="700"
+        Width="400" Height="700"
+        CanResize="False"
+        x:Class="HelloAvalonia.Views.MainWindow"
+        x:Name="Main"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="HelloAvalonia">
+
+    <Window.Styles>
+        <StyleInclude Source="/Styles/Custom.axaml" />
+    </Window.Styles>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <DockPanel>
+        <Panel Background="#512BD4" DockPanel.Dock="Top">
+            <TextBlock
+                Text="👋 Hello Avalonia UI"
+                Padding="10"
+                Foreground="White"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+        </Panel>
+        <StackPanel
+            DockPanel.Dock="Bottom"
+            Orientation="Vertical"
+            Spacing="25"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+
+            <Svg Path="/Assets/dotnet_bot.svg"
+                 x:Name="Bot"
+                 Height="300"
+                 Classes.ten="{Binding PlayAnimation}"
+                 IsEnabled="{Binding IsEnabled, Mode=TwoWay}" />
+
+            <TextBlock
+                Text="Hello, World!"
+                FontSize="32"
+                HorizontalAlignment="Center" />
+
+            <TextBlock
+                Text="Welcome to Avalonia UI"
+                FontSize="17"
+                HorizontalAlignment="Center" />
+
+            <Button
+                Content="{Binding Text}"
+                Command="{Binding ClickCommand}"
+                CommandParameter="{Binding #Bot}"
+                IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                HorizontalAlignment="Center" />
+
+            <Button
+                Content="Show Dialog"
+                Command="{Binding ShowDialogCommand}"
+                CommandParameter="{Binding #Main.ShowDialogInteraction}"
+                HorizontalAlignment="Center">
+
+            </Button>
+
+        </StackPanel>
+    </DockPanel>
+
+
+</Window>

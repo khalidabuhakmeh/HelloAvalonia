@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="HelloAvalonia/App.axaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Assets/Custom.axaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Styles/Colors.xaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Styles/Custom.axaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Styles/Styles.xaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Views/DialogWindow.axaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+        <entry key="HelloAvalonia/Views/MainWindow.axaml" value="HelloAvalonia/HelloAvalonia.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

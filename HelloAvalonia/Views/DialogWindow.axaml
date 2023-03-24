@@ -1,0 +1,52 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+        xmlns:e="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+        xmlns:vm="using:HelloAvalonia.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="400"
+        Width="400" Height="400"
+        CanResize="False"
+        Topmost="True"
+        WindowStartupLocation="CenterOwner"
+        x:Class="HelloAvalonia.Views.DialogWindow"
+        x:Name="Dialog"
+        Title="DialogWindow">
+
+    <i:Interaction.Behaviors>
+        <e:EventTriggerBehavior EventName="Opened">
+            <e:InvokeCommandAction Command="{Binding OpenedCommand}" />
+        </e:EventTriggerBehavior>
+    </i:Interaction.Behaviors>
+
+    <Design.DataContext>
+        <vm:DialogWindowViewModel />
+    </Design.DataContext>
+
+    <Window.Styles>
+        <StyleInclude Source="/Styles/Custom.axaml" />
+    </Window.Styles>
+
+    <StackPanel Margin="50" Spacing="20">
+
+        <Border Background="#262527"
+                BorderBrush="#444444" BorderThickness="1" 
+                CornerRadius="5"
+                Padding="5">
+            <Viewbox Stretch="Uniform" Width="200" Height="200">
+                <Image Source="{Binding CatImage, Mode=TwoWay}"
+                       Opacity="5"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center" />
+            </Viewbox>
+        </Border>
+
+        <Button Content="Close Dialog"
+                Command="{Binding HideCommand}"
+                CommandParameter="{Binding #Dialog.HideInteraction}"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center" />
+    </StackPanel>
+
+</Window>
